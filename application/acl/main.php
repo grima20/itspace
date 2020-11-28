@@ -3,5 +3,6 @@ return [
 	// Maincontroller
 	'all' => [
 		'index',
+        'result'
 	]
 ];

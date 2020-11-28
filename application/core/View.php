@@ -25,7 +25,7 @@ class View {
 
     public static function errorCode($code){
         http_response_code($code);
-        require 'application/views/error/'.$code.'.php';
+       echo'404';
         exit;
     }
     public function message($status, $message){

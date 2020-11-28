@@ -1,0 +1,1 @@
+<?phpreturn [    // Maincontroller    'all' => [        'info',    ]];
