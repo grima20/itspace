@@ -113,26 +113,21 @@ class MainController extends Controller {
         ];
     }
     public function indexAction() {
-        $results = [];
-        $value = [
-            0 => '1',
-            1 => "sdfgdfg",
-            2 => '12'
-        ];
-        $json = json_encode($value);
 
-
-        $result = exec( 'JSON='.$json.' python '.$_SERVER['DOCUMENT_ROOT'].'/test.py 2>&1');
 
         $vars = [
-            'users' => $result,
+            'users' => [],
             'pole' => $this->dataArray()
         ];
 
         $this->view->render('Главная страница', $vars );
 	}
 	public function resultAction(){
-        $this->view->message('success', $_POST);
+        $results = [];
+        $value = $_POST;
+        $json = json_encode($value);
+        $result = exec( 'JSON='.$json.' python '.$_SERVER['DOCUMENT_ROOT'].'/test.py 2>&1');
+        $this->view->message('success', $result);
     }
 
 }
