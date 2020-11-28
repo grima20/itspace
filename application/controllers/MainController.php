@@ -112,16 +112,19 @@ class MainController extends Controller {
             'alko_stop' => 0,
         ];
     }
+
+
+    /*Главная страница */
     public function indexAction() {
-
-
         $vars = [
             'users' => [],
             'pole' => $this->dataArray()
         ];
-
         $this->view->render('Главная страница', $vars );
 	}
+
+
+	/*Получаю пост запрос*/
 	public function resultAction(){
         $results = [];
         $value = $_POST;
@@ -129,5 +132,9 @@ class MainController extends Controller {
         $result = exec( 'JSON='.$json.' python '.$_SERVER['DOCUMENT_ROOT'].'/test.py 2>&1');
         $this->view->message('success', $result);
     }
+
+
+
+
 
 }
