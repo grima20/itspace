@@ -1,0 +1,1 @@
+import osfrom json import JSONDecoder json = os.getenv('JSON')value = JSONDecoder().decode(json)print(value)
