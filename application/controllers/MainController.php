@@ -116,6 +116,7 @@ class MainController extends Controller {
 
     /*Главная страница */
     public function indexAction() {
+
         $vars = [
             'users' => [],
             'pole' => $this->dataArray()
@@ -126,11 +127,7 @@ class MainController extends Controller {
 
 	/*Получаю пост запрос*/
 	public function resultAction(){
-        $results = [];
-        $value = $_POST;
-        $json = json_encode($value);
-        $result = exec( 'JSON='.$json.' python '.$_SERVER['DOCUMENT_ROOT'].'/test.py 2>&1');
-        $this->view->message('success', $result);
+        $this->view->message('success', $this->model->loadinfo($_POST));
     }
 
 
